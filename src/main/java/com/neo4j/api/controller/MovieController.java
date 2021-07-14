@@ -33,7 +33,7 @@ public class MovieController {
 	}
 
 	@GetMapping("/{id}")
-	ResponseEntity<Movie> getById(@PathVariable String id) {
+	ResponseEntity<Movie> getById(@PathVariable Long id) {
 		return ResponseEntity.ok().body(movieService.getById(id));
 	}
 
@@ -43,9 +43,14 @@ public class MovieController {
 	}
 
 	@DeleteMapping("/{id}")
-	ResponseEntity<String> deleteById(@PathVariable String id) {
+	ResponseEntity<String> deleteById(@PathVariable Long id) {
 		movieService.deleteById(id);
 		return ResponseEntity.ok().body("deleted successfully id: " + id);
+	}
+	
+	@GetMapping("/title/{title}")
+	ResponseEntity<List<Movie>> getByTitle(@PathVariable String title) {
+		return ResponseEntity.ok().body(movieService.getSpecificMovies(title));
 	}
 
 }

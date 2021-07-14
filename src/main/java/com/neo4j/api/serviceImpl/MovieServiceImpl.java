@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.neo4j.api.model.Movie;
 import com.neo4j.api.repository.MovieRepository;
 import com.neo4j.api.service.MovieService;
+
 @Service
 public class MovieServiceImpl implements MovieService {
 	@Autowired
@@ -26,7 +27,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public Movie getById(String id) {
+	public Movie getById(Long id) {
 		Optional<Movie> movie = movieRepository.findById(id);
 		return null;
 	}
@@ -38,8 +39,19 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public void deleteById(String id) {
+	public void deleteById(Long id) {
 		movieRepository.deleteById(id);
+	}
+
+	@Override
+	public void deleteAll() {
+		movieRepository.deleteAll();
+
+	}
+
+	@Override
+	public List<Movie> getSpecificMovies(String title) {
+		return movieRepository.getSpecificMovies(title);
 	}
 
 }
