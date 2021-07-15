@@ -24,6 +24,14 @@ public class Movie {
 	public Movie() {
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -54,6 +62,12 @@ public class Movie {
 
 	public void setDirectors(Set<Person> directors) {
 		this.directors = directors;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", actors=" + actors
+				+ ", directors=" + directors + "]";
 	}
 
 }

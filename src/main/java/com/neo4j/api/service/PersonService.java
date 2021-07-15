@@ -16,4 +16,6 @@ public interface PersonService {
 	void deleteById(Long id);
 
 	void deleteAll();
+
+	List<Person> getSpecificPersons(String name);
 }

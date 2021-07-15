@@ -16,6 +16,7 @@ public interface MovieService {
 	void deleteById(Long id);
 
 	void deleteAll();
+
 	List<Movie> getSpecificMovies(String title);
 
 }

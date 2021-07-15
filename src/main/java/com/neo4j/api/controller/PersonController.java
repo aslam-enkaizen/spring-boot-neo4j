@@ -13,44 +13,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.neo4j.api.model.Movie;
-import com.neo4j.api.service.MovieService;
+import com.neo4j.api.model.Person;
+import com.neo4j.api.service.PersonService;
 
 @RestController
-@RequestMapping("/movie")
-public class MovieController {
+@RequestMapping("/person")
+public class PersonController {
 	@Autowired
-	MovieService movieService;
+	PersonService personService;
 
 	@PostMapping(value = "/create")
-	ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
-		return ResponseEntity.ok().body(movieService.createMovie(movie));
+	ResponseEntity<Person> createPerson(@RequestBody Person person) {
+		return ResponseEntity.ok().body(personService.createPerson(person));
 	}
 
 	@GetMapping(value = "/getAll")
-	ResponseEntity<List<Movie>> getMovies() {
-		return ResponseEntity.ok().body(movieService.getMovies());
+	ResponseEntity<List<Person>> getPersons() {
+		return ResponseEntity.ok().body(personService.getPersons());
 	}
 
 	@GetMapping("/getById/{id}")
-	ResponseEntity<Movie> getById(@PathVariable Long id) {
-		return ResponseEntity.ok().body(movieService.getById(id));
+	ResponseEntity<Person> getById(@PathVariable Long id) {
+		return ResponseEntity.ok().body(personService.getById(id));
 	}
 
 	@PutMapping("/update")
-	ResponseEntity<Movie> update(@RequestBody Movie movie) {
-		return ResponseEntity.ok().body(movieService.update(movie));
+	ResponseEntity<Person> update(@RequestBody Person person) {
+		return ResponseEntity.ok().body(personService.update(person));
 	}
 
 	@DeleteMapping("/deleteById/{id}")
 	ResponseEntity<String> deleteById(@PathVariable Long id) {
-		movieService.deleteById(id);
+		personService.deleteById(id);
 		return ResponseEntity.ok().body("deleted successfully id: " + id);
 	}
-	
-	@GetMapping("/getByTitle/{title}")
-	ResponseEntity<List<Movie>> getByTitle(@PathVariable String title) {
-		return ResponseEntity.ok().body(movieService.getSpecificMovies(title));
-	}
 
+	@GetMapping("/getByName/{name}")
+	ResponseEntity<List<Person>> getByName(@PathVariable String name) {
+		return ResponseEntity.ok().body(personService.getSpecificPersons(name));
+	}
 }

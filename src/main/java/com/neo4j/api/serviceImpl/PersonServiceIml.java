@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.neo4j.api.model.Person;
 import com.neo4j.api.repository.PersonRepository;
 import com.neo4j.api.service.PersonService;
+
 @Service
 public class PersonServiceIml implements PersonService {
 	@Autowired
@@ -26,8 +27,7 @@ public class PersonServiceIml implements PersonService {
 
 	@Override
 	public Person getById(Long id) {
-		personRepository.findById(id);
-		return null;
+		return personRepository.findById(id).get();
 	}
 
 	@Override
@@ -43,6 +43,11 @@ public class PersonServiceIml implements PersonService {
 	@Override
 	public void deleteAll() {
 		personRepository.deleteAll();
+	}
+
+	@Override
+	public List<Person> getSpecificPersons(String name) {
+		return personRepository.getSpecificPersons(name);
 	}
 
 }

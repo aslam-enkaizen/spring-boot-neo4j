@@ -1,7 +1,6 @@
 package com.neo4j.api.serviceImpl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,13 +27,11 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public Movie getById(Long id) {
-		Optional<Movie> movie = movieRepository.findById(id);
-		return null;
+		return movieRepository.findById(id).get();
 	}
 
 	@Override
 	public Movie update(Movie movie) {
-
 		return movieRepository.save(movie);
 	}
 
