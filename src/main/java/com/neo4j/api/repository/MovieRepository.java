@@ -9,6 +9,9 @@ import org.springframework.data.repository.query.Param;
 import com.neo4j.api.model.Movie;
 
 public interface MovieRepository extends Neo4jRepository<Movie, Long> {
-	@Query("MATCH(n:Movie) WHERE n.title = $title RETURN n")
+//	@Query("MATCH(n:Movie) WHERE n.title = $title RETURN n")
+//	List<Movie> getSpecificMovies(@Param("title") String title);
+
+	@Query("MATCH(m:Movie), (p:Person) WHERE m.title = $title CREATE (m)-[:WRITTEN]->(p) RETURN m")
 	List<Movie> getSpecificMovies(@Param("title") String title);
 }
