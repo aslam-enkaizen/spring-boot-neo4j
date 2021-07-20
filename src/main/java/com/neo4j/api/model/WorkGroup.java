@@ -3,17 +3,15 @@ package com.neo4j.api.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 import org.springframework.data.neo4j.core.schema.Relationship.Direction;
 
 @Node
-public class WorkGroup {
+public class WorkGroup extends BaseNode {
 	@Id
-	@GeneratedValue
-	private Long id;
+	private String id;
 	private String name;
 	@Relationship(type = "HAS_WORKGROUP", direction = Direction.INCOMING)
 	private Membership owner;
@@ -23,13 +21,14 @@ public class WorkGroup {
 	private List<Negotiation> negotiations = new ArrayList<Negotiation>();
 
 	public WorkGroup() {
+		this.setId(getUniqueID());
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

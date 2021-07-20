@@ -25,7 +25,7 @@ public class WorkGroupServiceImpl implements WorkGroupService {
 	}
 
 	@Override
-	public WorkGroup getById(Long id) {
+	public WorkGroup getById(String id) {
 		return workGroupRepository.findById(id).get();
 	}
 

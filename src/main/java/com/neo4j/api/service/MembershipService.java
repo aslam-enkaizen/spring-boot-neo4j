@@ -9,5 +9,5 @@ public interface MembershipService {
 
 	List<Membership> getMemberships();
 
-	Membership getById(Long id);
+	Membership getById(String id);
 }

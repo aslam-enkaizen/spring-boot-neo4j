@@ -9,5 +9,5 @@ public interface PostService {
 
 	List<Post> getPosts();
 
-	Post getById(Long id);
+	Post getById(String id);
 }

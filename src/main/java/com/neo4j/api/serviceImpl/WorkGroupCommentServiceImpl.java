@@ -20,8 +20,8 @@ public class WorkGroupCommentServiceImpl implements WorkGroupCommentService {
 	@Autowired
 	MembershipService membershipService;
 
-	private Long postId = 10L;
-	private Long membershipId = 9L;
+	private String postId = "73695aeb-d66b-45bb-a679-087034b2a2e6";
+	private String membershipId = "82db2641-1fb8-41d7-8806-c4eada670cd3";
 
 	@Override
 	public WorkGroupComment createWorkGroupComment(WorkGroupComment workGroupComment) {

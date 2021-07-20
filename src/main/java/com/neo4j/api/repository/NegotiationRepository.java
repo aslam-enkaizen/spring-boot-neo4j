@@ -4,6 +4,6 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 
 import com.neo4j.api.model.Negotiation;
 
-public interface NegotiationRepository extends Neo4jRepository<Negotiation, Long> {
+public interface NegotiationRepository extends Neo4jRepository<Negotiation, String> {
 
 }

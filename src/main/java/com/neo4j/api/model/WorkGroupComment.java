@@ -1,30 +1,29 @@
 package com.neo4j.api.model;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 import org.springframework.data.neo4j.core.schema.Relationship.Direction;
 
 @Node
-public class WorkGroupComment {
+public class WorkGroupComment extends BaseNode {
 	@Id
-	@GeneratedValue
-	private Long id;
+	private String id;
 	private String message;
 	@Relationship(type = "POSTED_IN", direction = Direction.INCOMING)
 	private Post post;
-	@Relationship(type = "CREATED_IN", direction = Direction.INCOMING)
+	@Relationship(type = "CREATOR_POST", direction = Direction.INCOMING)
 	private Membership creator;
 
 	public WorkGroupComment() {
+		this.setId(getUniqueID());
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

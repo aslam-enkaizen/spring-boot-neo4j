@@ -25,7 +25,7 @@ public class MembershipServiceImpl implements MembershipService {
 	}
 
 	@Override
-	public Membership getById(Long id) {
+	public Membership getById(String id) {
 		return membershipRepository.findById(id).get();
 	}
 

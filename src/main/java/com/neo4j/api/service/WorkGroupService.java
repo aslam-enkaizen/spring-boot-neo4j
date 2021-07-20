@@ -9,5 +9,5 @@ public interface WorkGroupService {
 
 	List<WorkGroup> getWorkGroups();
 
-	WorkGroup getById(Long id);
+	WorkGroup getById(String id);
 }

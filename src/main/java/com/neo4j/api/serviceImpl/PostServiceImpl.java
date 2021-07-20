@@ -20,12 +20,12 @@ public class PostServiceImpl implements PostService {
 	@Autowired
 	MembershipService membershipService;
 
-	private Long workGroupId = 3L;
-	private Long membershipId = 9L;
+	private String workGroupId = "a7c7e613-2ce4-4bdc-97bf-b594a2fea435";
+	private String membershipId = "82db2641-1fb8-41d7-8806-c4eada670cd3";
 
 	@Override
 	public Post createPost(Post post) {
-		post.setWorkGroup(workGroupService.getById(workGroupId));
+		//post.setWorkGroup(workGroupService.getById(workGroupId));
 		post.setCreator(membershipService.getById(membershipId));
 		return postRepository.save(post);
 	}
@@ -36,7 +36,7 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Post getById(Long id) {
+	public Post getById(String id) {
 		return postRepository.findById(id).get();
 	}
 

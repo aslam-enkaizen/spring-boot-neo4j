@@ -1,25 +1,24 @@
 package com.neo4j.api.model;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
 @Node
-public class Negotiation {
+public class Negotiation extends BaseNode {
 	@Id
-	@GeneratedValue
-	private Long id;
+	private String id;
 	private String title;
 	private String description;
 
 	public Negotiation() {
+		this.setId(getUniqueID());
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
